@@ -42,6 +42,16 @@
     }
 
     /* Profile Images */
+    .profile-group {
+      margin-bottom: 30px;
+    }
+
+    .profile-group h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
     .profile-images {
       display: flex;
       justify-content: space-around;
@@ -113,14 +123,17 @@
       <h1>טיול היובל</h1>
     </header>
 
-    <!-- Profile Images -->
-    <section class="profile-images">
-      <img src="profile1.jpg" alt="Profile 1" class="profile">
-      <img src="profile2.jpg" alt="Profile 2" class="profile">
-      <img src="profile3.jpg" alt="Profile 3" class="profile">
-      <img src="profile4.jpg" alt="Profile 4" class="profile">
-      <img src="profile5.jpg" alt="Profile 5" class="profile">
-      <img src="profile6.jpg" alt="Profile 6" class="profile">
+    <!-- Profile Group: הצוות -->
+    <section class="profile-group">
+      <h2>הצוות:</h2>
+      <div class="profile-images">
+        <img src="profile1.jpg" alt="Profile 1" class="profile">
+        <img src="profile2.jpg" alt="Profile 2" class="profile">
+        <img src="profile3.jpg" alt="Profile 3" class="profile">
+        <img src="profile4.jpg" alt="Profile 4" class="profile">
+        <img src="profile5.jpg" alt="Profile 5" class="profile">
+        <img src="profile6.jpg" alt="Profile 6" class="profile">
+      </div>
     </section>
 
     <!-- Location and Date -->
@@ -133,7 +146,7 @@
 
     <!-- Plan -->
     <section class="plan">
-      <h2>Plan</h2>
+      <h2>Plan (work in progress)</h2>
       <div class="day" id="day1">
         <button onclick="toggleDay('day1')">Day 1: Athens to Mount Olympus</button>
         <div class="description">
@@ -188,6 +201,17 @@
           <p>Depart Zagori and head back to Athens (approx. 5 hours).</p>
           <p>Optional stop at Meteora monasteries along the way.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Profile Group: לא מוזמנים -->
+    <section class="profile-group">
+      <h2>לא מוזמנים:</h2>
+      <div class="profile-images">
+        <img src="profile7.jpg" alt="Profile 7" class="profile">
+        <img src="profile8.jpg" alt="Profile 8" class="profile">
+        <img src="profile9.jpg" alt="Profile 9" class="profile">
+        <img src="profile10.jpg" alt="Profile 10" class="profile">
       </div>
     </section>
   </div>
