@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טיול היובל</title>
+  <style>
+    /* General Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: none;
+      color: #000; /* Black text */
+    }
+
+    /* Background Image */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; /* Adjusts to screen width */
+      height: 100%; /* Covers the screen */
+      background-image: url('jeep.jpg'); /* Background image */
+      background-size: cover; /* Ensure the image scales proportionally */
+      background-repeat: no-repeat; /* Avoid repeating the image */
+      background-position: center;
+      opacity: 0.3; /* Reduce background opacity */
+      z-index: -1; /* Place behind the content */
+    }
+
+    /* Container Styles */
+    .container {
+      padding: 20px;
+    }
+
+    .title h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Profile Images */
+    .profile-images {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .profile {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+
+    /* Info Section */
+    .info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .info .map, .info .flag {
+      width: 100px;
+      margin: 10px;
+    }
+
+    /* Plan Section */
+    .plan h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .day {
+      margin-bottom: 15px;
+    }
+
+    .day button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: rgba(0, 123, 255, 0.8); /* Slightly transparent blue */
+      color: white;
+      border-radius: 5px;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .day button:hover {
+      background-color: rgba(0, 86, 179, 0.9); /* Darker blue on hover */
+    }
+
+    .description {
+      display: none; /* All days start collapsed */
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+      border: 1px solid rgba(0, 0, 0, 0.2); /* Light border for contrast */
+      border-radius: 5px;
+      margin-top: 5px;
+      color: #000; /* Ensure black text inside the description */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Title -->
+    <header class="title">
+      <h1>טיול היובל</h1>
+    </header>
+
+    <!-- Profile Images -->
+    <section class="profile-images">
+      <img src="profile1.jpg" alt="Profile 1" class="profile">
+      <img src="profile2.jpg" alt="Profile 2" class="profile">
+      <img src="profile3.jpg" alt="Profile 3" class="profile">
+      <img src="profile4.jpg" alt="Profile 4" class="profile">
+      <img src="profile5.jpg" alt="Profile 5" class="profile">
+      <img src="profile6.jpg" alt="Profile 6" class="profile">
+    </section>
+
+    <!-- Location and Date -->
+    <section class="info">
+      <p><strong>Location:</strong></p>
+      <img src="greece-map.jpg" alt="Map of Greece" class="map">
+      <img src="greece-flag.jpg" alt="Greek Flag" class="flag">
+      <p><strong>Date:</strong> Unknown</p>
+    </section>
+
+    <!-- Plan -->
+    <section class="plan">
+      <h2>Plan</h2>
+      <div class="day" id="day1">
+        <button onclick="toggleDay('day1')">Day 1: Athens to Mount Olympus</button>
+        <div class="description">
+          <p>Land in Athens and pick up your jeep. Begin your drive to Mount Olympus (approx. 4.5 hours).</p>
+          <p>Arrive in Litochoro, a charming village at the foot of Mount Olympus. Settle into your accommodation.</p>
+        </div>
+      </div>
+      <div class="day" id="day2">
+        <button onclick="toggleDay('day2')">Day 2: Mount Olympus Exploration</button>
+        <div class="description">
+          <p>Explore the trails of Mount Olympus National Park. Suggested highlights include:</p>
+          <ul>
+            <li>Jeep tracks to the Enipeas Gorge and Orlias Waterfalls.</li>
+            <li>Drive up to Prionia, the highest point accessible by vehicle.</li>
+            <li>Visit Old Panteleimon, a traditional mountain village with stunning views.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day" id="day3">
+        <button onclick="toggleDay('day3')">Day 3: Litochoro to Zagori</button>
+        <div class="description">
+          <p>Travel northwest to Zagori (approx. 3.5 hours).</p>
+          <p>Begin exploring Zagori's scenic villages, arched stone bridges, and jeep trails around the Vikos Gorge.</p>
+        </div>
+      </div>
+      <div class="day" id="day4">
+        <button onclick="toggleDay('day4')">Day 4: Vikos Gorge and Surroundings</button>
+        <div class="description">
+          <p>Focus on Zagori's remote trails and highlights:</p>
+          <ul>
+            <li>Jeep tracks through Vikos-Aoos National Park.</li>
+            <li>Scenic drives to remote villages like Vikos or Dilofo.</li>
+            <li>Optional short hike in Vikos Gorge or a visit to the Drakolimni alpine lakes (starting from Papingo).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day" id="day5">
+        <button onclick="toggleDay('day5')">Day 5: Prespa Lakes Day Tour</button>
+        <div class="description">
+          <p>Day trip to Prespa Lakes with off-road exploration and birdwatching.</p>
+          <p>Highlights include:</p>
+          <ul>
+            <li>Off-road trails around the lakes.</li>
+            <li>Visit Agios Achilleios Island (accessible via a footbridge).</li>
+            <li>Birdwatching for pelicans and other species.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="day" id="day6">
+        <button onclick="toggleDay('day6')">Day 6: Return to Athens</button>
+        <div class="description">
+          <p>Depart Zagori and head back to Athens (approx. 5 hours).</p>
+          <p>Optional stop at Meteora monasteries along the way.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleDay(dayId) {
+      const description = document.querySelector(`#${dayId} .description`);
+      const isOpen = description.style.display === "block";
+
+      // Collapse all days
+      document.querySelectorAll(".description").forEach((desc) => {
+        desc.style.display = "none";
+      });
+
+      // Expand the clicked day if it was not already open
+      if (!isOpen) {
+        description.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
